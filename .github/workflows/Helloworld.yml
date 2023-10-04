@@ -21,5 +21,5 @@ jobs:
          echo "Author: $PR_AUTHOR";
          echo "Last commit: $(git show -s --format=%s)";
          echo "Cambios:"
-          git diff ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
+          git diff origin/main
       shell: bash
