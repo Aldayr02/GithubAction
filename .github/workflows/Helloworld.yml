@@ -27,4 +27,5 @@ jobs:
           echo "Changes:"
           branch_name="${{ github.event.pull_request.head.ref }}"
           git checkout origin/"${branch_name}"
-          git diff origin/main
+          git diff origin/main...HEAD
+
