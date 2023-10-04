@@ -1,8 +1,10 @@
 
 name: Hello world action
 on: 
-  pull_request:
-    branches: [ "main" ]
+   pull_request:
+    types:
+      -opened
+      -synchronize
     
 jobs:
   log_greeting:
