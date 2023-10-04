@@ -1,1 +1,22 @@
 
+name: Hello world action
+on: pull_request
+
+jobs:
+  log_greeting:
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Environment setting
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ env.GITHUB_SHA }}
+    - name: Print pull request details
+      run: |
+         echo "Hello World at $( date +"%d/%M/%Y" )";
+         echo "Author: $PR_AUTHOR";
+         echo "Last commit: $(git show -s --format=%s)";
+         echo -e "Commit diff:\n$( git fetch && git diff origin/main..origin/tarea_actions )\n";
+      shell: bash
