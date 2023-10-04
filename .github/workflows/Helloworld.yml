@@ -7,8 +7,6 @@ on:
 jobs:
   log_greeting:
     runs-on: ubuntu-latest
-    env:
-      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
     steps:
     - uses: actions/checkout@v3
     - name: Environment setting
@@ -17,13 +15,12 @@ jobs:
         ref: ${{ env.GITHUB_SHA }}
     - name: Print pull request details
       run: |
-         
          echo "Hello World at $( date +"%d/%M/%Y" )";
-         echo "Author: $PR_AUTHOR";
+         echo "Author: ${{ github.event.pull_request.user.login }};
          echo "Last commit: $(git show -s --format=%s)";
          git fetch --all 
          echo "Changes:"
-          branch_name="${{ github.event.pull_request.head.ref }}"
-          git checkout origin/"${branch_name}"
-          git diff origin/main
+         branch_name="${{ github.event.pull_request.head.ref }}"
+         git checkout origin/"${branch_name}"
+         git diff origin/main
      
