@@ -1,7 +1,9 @@
 
 name: Hello world action
-on: [pull_request]
-
+on: 
+  pull_request:
+    branches: [ "main" ]
+    
 jobs:
   log_greeting:
     runs-on: ubuntu-latest
