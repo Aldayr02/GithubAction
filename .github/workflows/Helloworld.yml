@@ -20,5 +20,6 @@ jobs:
          echo "Hello World at $( date +"%d/%M/%Y" )";
          echo "Author: $PR_AUTHOR";
          echo "Last commit: $(git show -s --format=%s)";
-         echo -e "Commit diff:\n$( git fetch && git diff origin/main..origin/tarea_actions )\n";
+         echo "Cambios:"
+          git diff ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
       shell: bash
