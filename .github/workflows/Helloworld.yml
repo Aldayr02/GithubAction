@@ -1,4 +1,4 @@
-name: Print Pull Request Details
+name: Helloworld action
 
 on:
   pull_request:
