@@ -1,6 +1,6 @@
 
 name: Hello world action
-on: pull_request
+on: [pull_request]
 
 jobs:
   log_greeting:
