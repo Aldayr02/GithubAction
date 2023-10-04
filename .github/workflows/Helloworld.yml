@@ -17,12 +17,13 @@ jobs:
         ref: ${{ env.GITHUB_SHA }}
     - name: Print pull request details
       run: |
-         git fetch --all 
+         
          echo "Hello World at $( date +"%d/%M/%Y" )";
          echo "Author: $PR_AUTHOR";
          echo "Last commit: $(git show -s --format=%s)";
+         git fetch --all 
          echo "Changes:"
           branch_name="${{ github.event.pull_request.head.ref }}"
           git checkout origin/"${branch_name}"
           git diff origin/main
-      shell: bash
+     
